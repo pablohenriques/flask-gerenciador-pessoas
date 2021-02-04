@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css">
+    <title>GP | {% block title %}{% endblock %}</title>
+</head>
+<body class="bg-light">
+<header class="bg-secondary">
+    <div class="d-flex justify-content-between container">
+        <div class="nav text-info text-lg-center">
+            <a class="navbar-brand text-white nav-link">Gerenciador de Pessoas</a>
+        </div>
+        <nav class="nav">
+            {% block menu %}
+            {% endblock %}
+        </nav>
+    </div>
+</header>
+<section class="container">
+    {% block section %}
+    {% endblock %}
+</section>
+
+<script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.slim.min.js') }}"></script>
+</body>
+</html>

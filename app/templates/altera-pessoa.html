@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %} Alteração Pessoa {% endblock %}
+
+{% if current_user.is_authenticated %}
+    {% block menu %}
+        <a class="navbar-brand text-white nav-link" href="/home">Home</a>
+        <a class="navbar-brand text-white nav-link" href="/cadastro_pessoa">Cadastro</a>
+        <a class="navbar-brand text-white nav-link" href="/listar_pessoas">Pessoas</a>
+        <a class="navbar-brand text-white nav-link" href="/logout">Sair</a>
+    {% endblock %}
+{% endif %}
+
+{% block section %}
+<h2 class="text-md-center">Formulário para cadastro de Pessoa</h2>
+<hr>
+<form action="/alterar_pessoa/{{ pessoa.id_pessoa }}" class="row g-3" method="POST">
+    <div class="col-md-6">
+        <label class="form-label" for="inputNome">Nome</label>
+        <input class="form-control" id="inputNome" name="nome_pessoa" type="text"  value="{{ pessoa.nome }}">
+    </div>
+    <div class="col-md-6">
+        <label class="form-label" for="inputCargo">Cargo</label>
+        <input class="form-control" id="inputCargo" name="cargo_pessoa" type="text" value="{{ pessoa.cargo }}">
+    </div>
+    <div class="col-12">
+        <label class="form-label" for="inputCongregacao">Congregacao</label>
+        <input class="form-control" id="inputCongregacao" name="congregacao_pessoa" type="text" value="{{ pessoa.congregacao }}">
+    </div>
+    <div class="col-6 mt-2">
+         <label class="form-label" for="selectSexo">Selecione o sexo:</label>
+        <select class="form-select" id="selectSexo" name="sexo_pessoa">
+            <option selected value="{{ pessoa.sexo }}">{{ pessoa.sexo }}</option>
+        </select>
+    </div>
+    <div class="col-6 mt-2">
+        <label class="form-label" for="idade">Idade</label>
+        <input class="form-control" id="idade" name="idade_pessoa" type="number" value="{{ pessoa.idade }}">
+    </div>
+    <hr>
+    <button class="btn btn-primary" type="submit">Alterar Pessoa</button>
+</form>
+
+{% endblock %}

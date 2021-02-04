@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css">
+    <title>GP | Início</title>
+</head>
+<body class="bg-light">
+<header class="bg-secondary">
+    <div class="d-flex justify-content-between container">
+        <div class="nav text-info text-lg-center">
+            <a class="navbar-brand text-white nav-link">Gerenciador de Pessoas</a>
+        </div>
+        <nav class="nav">
+            <a class="navbar-brand text-white nav-link" href="/login">Login</a>
+        </nav>
+    </div>
+</header>
+
+<section>
+    <div class="jumbotron mt-4">
+        <h1 class="text-center">Gerenciamento de Pessoas</h1>
+    </div>
+</section>
+
+<script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.slim.min.js') }}"></script>
+</body>
+</html>

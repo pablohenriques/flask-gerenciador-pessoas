@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %} Pessoas {% endblock %}
+
+{% if current_user.is_authenticated %}
+    {% block menu %}
+        <a class="navbar-brand text-white nav-link" href="/home">Home</a>
+        <a class="navbar-brand text-white nav-link" href="/cadastro_pessoa">Cadastro</a>
+        <a class="navbar-brand text-white nav-link" href="/listar_pessoas">Pessoas</a>
+        <a class="navbar-brand text-white nav-link" href="/logout">Sair</a>
+    {% endblock %}
+{% endif %}
+
+{% block section %}
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th class="scope">#</th>
+        <th class="scope">Nome</th>
+        <th class="scope">Idade</th>
+        <th class="scope">Sexo</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for pessoa in lista_pessoas %}
+    <tr>
+        <th scope="row">{{ pessoa['id'] }}</th>
+        <td>{{ pessoa['nome'] }}</td>
+        <td>{{ pessoa['idade'] }}</td>
+        <td>{{ pessoa['sexo'] }}</td>
+        <td>
+            <a href="/alterar_pessoa/{{ pessoa['id'] }}">Alterar</a>
+            <a href="/deletar_pessoa/{{ pessoa['id']}}">Excluir</a>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
